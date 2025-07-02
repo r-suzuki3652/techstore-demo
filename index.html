@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - 最新家電で快適な暮らしを</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        /* ヘッダー */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+        
+        nav a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: #666;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #2563eb;
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* 商品グリッド */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #1a1a1a;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            height: 200px;
+            background-color: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-category {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+        
+        .product-price {
+            font-size: 1.5rem;
+            color: #2563eb;
+            font-weight: bold;
+        }
+        
+        /* フッター */
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        
+        .footer-content p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            nav a {
+                margin-left: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">TechStore</a>
+            <nav>
+                <a href="index.html">ホーム</a>
+                <a href="#products">商品一覧</a>
+                <a href="#about">会社概要</a>
+                <a href="#contact">お問い合わせ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>最新家電で快適な暮らしを</h1>
+            <p>TechStoreは最新技術を搭載した家電製品を豊富に取り揃えています</p>
+        </section>
+
+        <div class="container">
+            <h2 class="section-title" id="products">商品一覧</h2>
+            
+            <div class="product-grid">
+                <a href="visionpro-x55.html" class="product-card">
+                    <div class="product-image">📺</div>
+                    <div class="product-info">
+                        <p class="product-category">4Kテレビ</p>
+                        <h3 class="product-name">4K有機ELテレビ VisionPro X55</h3>
+                        <p class="product-price">¥298,000</p>
+                    </div>
+                </a>
+
+                <a href="freshkeeper-pro-500l.html" class="product-card">
+                    <div class="product-image">🧊</div>
+                    <div class="product-info">
+                        <p class="product-category">冷蔵庫</p>
+                        <h3 class="product-name">スマート冷蔵庫 FreshKeeper Pro 500L</h3>
+                        <p class="product-price">¥178,000</p>
+                    </div>
+                </a>
+
+                <a href="cleanmaster-dx12.html" class="product-card">
+                    <div class="product-image">🌀</div>
+                    <div class="product-info">
+                        <p class="product-category">洗濯機</p>
+                        <h3 class="product-name">ドラム式洗濯乾燥機 CleanMaster DX12</h3>
+                        <p class="product-price">¥248,000</p>
+                    </div>
+                </a>
+
+                <a href="airflow-smart.html" class="product-card">
+                    <div class="product-image">❄️</div>
+                    <div class="product-info">
+                        <p class="product-category">エアコン</p>
+                        <h3 class="product-name">AirFlow Smart 14畳用エアコン</h3>
+                        <p class="product-price">¥128,000</p>
+                    </div>
+                </a>
+
+                <a href="cleanbot-pro-r7.html" class="product-card">
+                    <div class="product-image">🤖</div>
+                    <div class="product-info">
+                        <p class="product-category">ロボット掃除機</p>
+                        <h3 class="product-name">CleanBot Pro R7 ロボット掃除機</h3>
+                        <p class="product-price">¥89,800</p>
+                    </div>
+                </a>
+
+                <a href="chefmaster-30l.html" class="product-card">
+                    <div class="product-image">🍳</div>
+                    <div class="product-info">
+                        <p class="product-category">オーブンレンジ</p>
+                        <h3 class="product-name">ChefMaster オーブンレンジ 30L</h3>
+                        <p class="product-price">¥54,800</p>
+                    </div>
+                </a>
+
+                <a href="pureair-plus-360.html" class="product-card">
+                    <div class="product-image">💨</div>
+                    <div class="product-info">
+                        <p class="product-category">空気清浄機</p>
+                        <h3 class="product-name">PureAir Plus 360 空気清浄機</h3>
+                        <p class="product-price">¥42,800</p>
+                    </div>
+                </a>
+
+                <a href="baristapro.html" class="product-card">
+                    <div class="product-image">☕</div>
+                    <div class="product-info">
+                        <p class="product-category">コーヒーメーカー</p>
+                        <h3 class="product-name">BaristaPro 全自動コーヒーメーカー</h3>
+                        <p class="product-price">¥36,800</p>
+                    </div>
+                </a>
+
+                <a href="voicehub-max.html" class="product-card">
+                    <div class="product-image">🔊</div>
+                    <div class="product-info">
+                        <p class="product-category">スマートスピーカー</p>
+                        <h3 class="product-name">VoiceHub Max スマートスピーカー</h3>
+                        <p class="product-price">¥19,800</p>
+                    </div>
+                </a>
+
+                <a href="quickboil-pro.html" class="product-card">
+                    <div class="product-image">🫖</div>
+                    <div class="product-info">
+                        <p class="product-category">電気ケトル</p>
+                        <h3 class="product-name">QuickBoil Pro 温度調節ケトル</h3>
+                        <p class="product-price">¥8,980</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>TechStore - 最新家電で快適な暮らしをお届けします</p>
+            <p>&copy; 2025 TechStore. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
