@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PureAir Plus 360 - 空気清浄機 | TechStore</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        /* ヘッダー */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+        
+        nav a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: #666;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #2563eb;
+        }
+        
+        /* メインコンテンツ */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .breadcrumb {
+            margin-bottom: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        
+        .product-section {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .product-image {
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 2rem;
+        }
+        
+        .product-info h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+        
+        .category {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stars {
+            color: #fbbf24;
+            margin-right: 0.5rem;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            color: #2563eb;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tax-info {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+        
+        .features {
+            margin-bottom: 2rem;
+        }
+        
+        .features h3 {
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+        
+        .features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .add-to-cart {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-bottom: 2rem;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #1d4ed8;
+        }
+        
+        .benefits {
+            border-top: 1px solid #e5e5e5;
+            padding-top: 1.5rem;
+        }
+        
+        .benefits p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .description-section {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .description-section h2 {
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+        
+        .description-section p {
+            color: #444;
+            line-height: 1.8;
+        }
+        
+        /* スペック表 */
+        .specs-section {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .specs-table th,
+        .specs-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .specs-table th {
+            background-color: #f8f8f8;
+            font-weight: 600;
+            width: 30%;
+        }
+        
+        /* フッター */
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: #999;
+            text-decoration: none;
+            font-size: 0.9rem;
+            line-height: 2;
+        }
+        
+        .footer-section a:hover {
+            color: #fff;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #333;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .product-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            nav a {
+                margin-left: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">TechStore</a>
+            <nav>
+                <a href="index.html">ホーム</a>
+                <a href="products.html">商品一覧</a>
+                <a href="cart.html">カート</a>
+                <a href="contact.html">お問い合わせ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">ホーム</a> &gt; 
+                <a href="category-air-purifier.html">空気清浄機</a> &gt; 
+                PureAir Plus 360
+            </div>
+
+            <div class="product-section">
+                <div class="product-image">
+                    <img src="https://i.postimg.cc/vTtR2X9s/Pure-Air-Plus.png" alt="PureAir Plus 360 空気清浄機">
+                </div>
+                
+                <div class="product-info">
+                    <p class="category">空気清浄機</p>
+                    <h1>PureAir Plus 360 空気清浄機</h1>
+                    
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span>4.7 (142件のレビュー)</span>
+                    </div>
+                    
+                    <div class="price">¥42,800</div>
+                    <p class="tax-info">税込価格・送料無料</p>
+                    
+                    <div class="features">
+                        <h3>商品の特徴</h3>
+                        <ul>
+                            <li>最大25畳対応</li>
+                            <li>99.9%除去率</li>
+                            <li>静音設計</li>
+                            <li>2年間フィルター交換不要</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="add-to-cart" onclick="addToCart()">カートに追加</button>
+                    
+                    <div class="benefits">
+                        <p>✓ 送料無料</p>
+                        <p>✓ 1年間のメーカー保証付き</p>
+                        <p>✓ 14日間返品保証</p>
+                        <p>✓ 交換用フィルター10%OFFクーポン付き</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="description-section">
+                <h2>商品説明</h2>
+                <p>
+                    PureAir Plus 360は、360度全方向から空気を吸引する高性能空気清浄機です。価格は42,800円（税込）。円筒形デザインにより、部屋のどこに置いても効率的に空気を循環させ、清浄化します。
+                </p>
+                <br>
+                <p>
+                    適用床面積は最大25畳。PM2.5、花粉、ウイルスを99.9%除去する高性能HEPAフィルターを搭載しています。花粉症の季節やペットのいるご家庭でも、快適な空気環境を実現します。
+                </p>
+                <br>
+                <p>
+                    静音設計により、睡眠時も気になりません。最小運転音はわずか18dBで、図書館よりも静か。フィルター交換時期を知らせる機能付きで、約2年間フィルター交換不要です。空気質センサーが室内の汚れを感知し、自動運転モードで常に最適な清浄を行います。
+                </p>
+            </div>
+
+            <div class="specs-section">
+                <h2>製品仕様</h2>
+                <table class="specs-table">
+                    <tr>
+                        <th>適用床面積</th>
+                        <td>最大25畳（約41㎡）</td>
+                    </tr>
+                    <tr>
+                        <th>本体寸法</th>
+                        <td>幅35cm × 高さ58cm × 奥行35cm</td>
+                    </tr>
+                    <tr>
+                        <th>質量</th>
+                        <td>約7.2kg</td>
+                    </tr>
+                    <tr>
+                        <th>清浄時間</th>
+                        <td>8畳を約9分で清浄</td>
+                    </tr>
+                    <tr>
+                        <th>風量</th>
+                        <td>最大6.7㎥/分</td>
+                    </tr>
+                    <tr>
+                        <th>運転音</th>
+                        <td>18dB（静音）〜48dB（ターボ）</td>
+                    </tr>
+                    <tr>
+                        <th>フィルター</th>
+                        <td>HEPAフィルター、活性炭フィルター、プレフィルター</td>
+                    </tr>
+                    <tr>
+                        <th>フィルター寿命</th>
+                        <td>約2年（使用環境により異なる）</td>
+                    </tr>
+                    <tr>
+                        <th>消費電力</th>
+                        <td>4W（静音）〜45W（ターボ）</td>
+                    </tr>
+                    <tr>
+                        <th>センサー</th>
+                        <td>ホコリセンサー、ニオイセンサー、照度センサー</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>TechStore</h3>
+                <p>最新家電で快適な暮らしをお届けします</p>
+            </div>
+            <div class="footer-section">
+                <h3>カスタマーサポート</h3>
+                <ul>
+                    <li><a href="#">お問い合わせ</a></li>
+                    <li><a href="#">配送について</a></li>
+                    <li><a href="#">返品・交換</a></li>
+                    <li><a href="#">よくある質問</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>会社情報</h3>
+                <ul>
+                    <li><a href="#">会社概要</a></li>
+                    <li><a href="#">採用情報</a></li>
+                    <li><a href="#">プレスリリース</a></li>
+                    <li><a href="#">投資家情報</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>フォローする</h3>
+                <ul>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TechStore. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function addToCart() {
+            alert('PureAir Plus 360 をカートに追加しました！');
+            // 実際のECサイトではここでカート処理を実装
+        }
+        
+        // 画像エラー時の処理
+        document.addEventListener('DOMContentLoaded', function() {
+            const img = document.querySelector('.product-image img');
+            if (img) {
+                img.onerror = function() {
+                    this.parentElement.style.display = 'flex';
+                    this.parentElement.style.alignItems = 'center';
+                    this.parentElement.style.justifyContent = 'center';
+                    this.parentElement.innerHTML = '<div style="text-align: center; color: #666;"><div style="font-size: 4rem; margin-bottom: 1rem;">💨</div><div>PureAir Plus 360<br>空気清浄機</div></div>';
+                };
+            }
+        });
+    </script>
+</body>
+</html>

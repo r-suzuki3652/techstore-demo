@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanBot Pro R7 - ロボット掃除機 | TechStore</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        /* ヘッダー */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+        
+        nav a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: #666;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #2563eb;
+        }
+        
+        /* メインコンテンツ */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .breadcrumb {
+            margin-bottom: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        
+        .product-section {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .product-image {
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 2rem;
+        }
+        
+        .product-info h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+        
+        .category {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stars {
+            color: #fbbf24;
+            margin-right: 0.5rem;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            color: #2563eb;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tax-info {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+        
+        .features {
+            margin-bottom: 2rem;
+        }
+        
+        .features h3 {
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+        
+        .features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .add-to-cart {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-bottom: 2rem;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #1d4ed8;
+        }
+        
+        .benefits {
+            border-top: 1px solid #e5e5e5;
+            padding-top: 1.5rem;
+        }
+        
+        .benefits p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .description-section {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .description-section h2 {
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+        
+        .description-section p {
+            color: #444;
+            line-height: 1.8;
+        }
+        
+        /* スペック表 */
+        .specs-section {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .specs-table th,
+        .specs-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .specs-table th {
+            background-color: #f8f8f8;
+            font-weight: 600;
+            width: 30%;
+        }
+        
+        /* フッター */
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: #999;
+            text-decoration: none;
+            font-size: 0.9rem;
+            line-height: 2;
+        }
+        
+        .footer-section a:hover {
+            color: #fff;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #333;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .product-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            nav a {
+                margin-left: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">TechStore</a>
+            <nav>
+                <a href="index.html">ホーム</a>
+                <a href="products.html">商品一覧</a>
+                <a href="cart.html">カート</a>
+                <a href="contact.html">お問い合わせ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">ホーム</a> &gt; 
+                <a href="category-cleaner.html">掃除機</a> &gt; 
+                CleanBot Pro R7
+            </div>
+
+            <div class="product-section">
+                <div class="product-image">
+                    <img src="https://i.postimg.cc/rwFT36QY/Clean-Bot-Pro.png" alt="CleanBot Pro R7 ロボット掃除機">
+                </div>
+                
+                <div class="product-info">
+                    <p class="category">ロボット掃除機</p>
+                    <h1>CleanBot Pro R7 ロボット掃除機</h1>
+                    
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span>4.9 (234件のレビュー)</span>
+                    </div>
+                    
+                    <div class="price">¥89,800</div>
+                    <p class="tax-info">税込価格・送料無料</p>
+                    
+                    <div class="features">
+                        <h3>商品の特徴</h3>
+                        <ul>
+                            <li>レーザーマッピング</li>
+                            <li>水拭き機能</li>
+                            <li>最大180分稼働</li>
+                            <li>自動充電・再開</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="add-to-cart" onclick="addToCart()">カートに追加</button>
+                    
+                    <div class="benefits">
+                        <p>✓ 送料無料</p>
+                        <p>✓ 1年間のメーカー保証付き</p>
+                        <p>✓ 14日間返品保証</p>
+                        <p>✓ 交換用消耗品セット付き</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="description-section">
+                <h2>商品説明</h2>
+                <p>
+                    CleanBot Pro R7は、最新のレーザーマッピング機能を搭載したロボット掃除機です。価格は89,800円（税込）。お部屋の間取りを正確に把握し、効率的な掃除ルートを自動生成します。無駄のない動きで、短時間で隅々まできれいにします。
+                </p>
+                <br>
+                <p>
+                    掃除機がけと水拭きを同時に行える2in1設計。乾拭き・水拭きの切り替えも簡単で、フローリングもカーペットも、これ1台でピカピカに。水量は3段階で調節可能、床材に合わせて最適な清掃ができます。
+                </p>
+                <br>
+                <p>
+                    専用アプリでスケジュール設定や特定エリアの重点掃除も可能。外出中でも掃除の進行状況を確認でき、帰宅時にはきれいな部屋が待っています。バッテリー持続時間は最大180分、自動充電・掃除再開機能付きで、広い家でも安心です。
+                </p>
+            </div>
+
+            <div class="specs-section">
+                <h2>製品仕様</h2>
+                <table class="specs-table">
+                    <tr>
+                        <th>本体寸法</th>
+                        <td>直径35cm × 高さ9.6cm</td>
+                    </tr>
+                    <tr>
+                        <th>質量</th>
+                        <td>約3.9kg</td>
+                    </tr>
+                    <tr>
+                        <th>稼働時間</th>
+                        <td>最大180分（エコモード時）</td>
+                    </tr>
+                    <tr>
+                        <th>充電時間</th>
+                        <td>約3時間</td>
+                    </tr>
+                    <tr>
+                        <th>ダストボックス容量</th>
+                        <td>460ml</td>
+                    </tr>
+                    <tr>
+                        <th>水タンク容量</th>
+                        <td>250ml</td>
+                    </tr>
+                    <tr>
+                        <th>吸引力</th>
+                        <td>最大2700Pa</td>
+                    </tr>
+                    <tr>
+                        <th>ナビゲーション</th>
+                        <td>レーザーSLAM方式</td>
+                    </tr>
+                    <tr>
+                        <th>乗り越え段差</th>
+                        <td>最大2cm</td>
+                    </tr>
+                    <tr>
+                        <th>スマート機能</th>
+                        <td>Wi-Fi対応、アプリ連携、音声操作対応</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>TechStore</h3>
+                <p>最新家電で快適な暮らしをお届けします</p>
+            </div>
+            <div class="footer-section">
+                <h3>カスタマーサポート</h3>
+                <ul>
+                    <li><a href="#">お問い合わせ</a></li>
+                    <li><a href="#">配送について</a></li>
+                    <li><a href="#">返品・交換</a></li>
+                    <li><a href="#">よくある質問</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>会社情報</h3>
+                <ul>
+                    <li><a href="#">会社概要</a></li>
+                    <li><a href="#">採用情報</a></li>
+                    <li><a href="#">プレスリリース</a></li>
+                    <li><a href="#">投資家情報</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>フォローする</h3>
+                <ul>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TechStore. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function addToCart() {
+            alert('CleanBot Pro R7 をカートに追加しました！');
+            // 実際のECサイトではここでカート処理を実装
+        }
+        
+        // 画像エラー時の処理
+        document.addEventListener('DOMContentLoaded', function() {
+            const img = document.querySelector('.product-image img');
+            if (img) {
+                img.onerror = function() {
+                    this.parentElement.style.display = 'flex';
+                    this.parentElement.style.alignItems = 'center';
+                    this.parentElement.style.justifyContent = 'center';
+                    this.parentElement.innerHTML = '<div style="text-align: center; color: #666;"><div style="font-size: 4rem; margin-bottom: 1rem;">🤖</div><div>CleanBot Pro R7<br>ロボット掃除機</div></div>';
+                };
+            }
+        });
+    </script>
+</body>
+</html>
